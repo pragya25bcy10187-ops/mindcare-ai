@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Social Anxiety Test</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="test-container">
+<h2>Social Anxiety Test</h2>
+
+<form id="socialForm">
+
+<p>1. Fear of speaking in public?</p>
+<select name="q1"><option value="0">Not at all</option><option value="1">Several days</option><option value="2">More than half the days</option><option value="3">Nearly every day</option></select>
+
+<p>2. Avoid social situations?</p>
+<select name="q2"><option value="0">Not at all</option><option value="1">Several days</option><option value="2">More than half the days</option><option value="3">Nearly every day</option></select>
+
+<p>3. Fear of being judged?</p>
+<select name="q3"><option value="0">Not at all</option><option value="1">Several days</option><option value="2">More than half the days</option><option value="3">Nearly every day</option></select>
+
+<p>4. Nervous meeting new people?</p>
+<select name="q4"><option value="0">Not at all</option><option value="1">Several days</option><option value="2">More than half the days</option><option value="3">Nearly every day</option></select>
+
+<button type="button" onclick="calculateTest('socialForm')">Submit</button>
+</form>
+
+<h3 id="result"></h3>
+
+<div class="card" onclick="location.href='mental.html'">home back</div>
+
+</div>
+
+<script>
+
+function calculateTest(formId) {
+  const form = document.forms[formId];
+  let score = 0;
+
+  for (let i = 1; i <= 4; i++) {
+    score += parseInt(form["q" + i].value);
+  }
+
+  let result = "";
+
+  if (score <= 4) result = "Low 😊";
+  else if (score <= 8) result = "Mild 😐";
+  else if (score <= 12) result = "Moderate 😟";
+  else result = "Severe ⚠️ Seek help";
+
+  document.getElementById("result").innerText =
+    "Score: " + score + " → " + result;
+}
+</script>
+
+<script src="test.js"></script>
+
+<style>
+/* 🌈 Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #e0f7fa, #d1fae5);
+}
+
+/* 🧠 Container */
+.test-container {
+  width: 420px;
+  margin: 60px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* 🔥 Heading */
+.test-container h2 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f766e;
+  margin-bottom: 20px;
+}
+
+/* ❓ Questions */
+.test-container p {
+  font-weight: 500;
+  color: #374151;
+}
+
+/* 📥 Dropdown */
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  transition: 0.3s;
+}
+
+select:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 6px #10b981;
+  outline: none;
+}
+
+/* 🔘 Button */
+button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(45deg, #10b981, #0ea5e9);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+/* 📊 Result */
+#result {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #065f46;
+}
+
+/* ⚠️ Note */
+.note {
+  color: red;
+  text-align: center;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+/* 🖼️ Banner */
+.banner {
+  background: url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70');
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  border-radius: 20px 20px 0 0;
+  margin-bottom: 15px;
+}
+</style>
+
+
+</body>
+</html>
