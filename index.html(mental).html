@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mental Health Support</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<header class="navbar">
+  <h2 class="logo">🧠 MindCare</h2>
+  <div>
+    <button class="btn-outline">Login</button>
+    <button class="btn-primary">Take Test</button>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <h1>Take a Mental Health Test</h1>
+  <p>
+    Free, quick, and confidential screening tools to understand your mental health.
+  </p>
+</section>
+
+<!-- Test Cards -->
+<section class="tests">
+  <div class="card" onclick="location.href='depression.html'">Depression Test</div>
+  <div class="card" onclick="location.href='anxiety.html'">Anxiety Test</div>
+  <div class="card" onclick="location.href='stressful.html'">stressful Test</div>
+  <div class="card" onclick="location.href='ptsd.html'">PTSD Test</div>
+  <div class="card" onclick="location.href='addiction.html'">Addiction Test</div>
+  <div class="card" onclick="location.href='social.html'">Social Anxiety Test</div>
+</section>  
+  <!-- How it Works -->
+<section class="info">
+  <h2>How does it work?</h2>
+  <p>
+    After your test, you’ll get personalized insights, resources, and tools.
+  </p>
+
+  <button class="info-btn">How can testing help me?</button>
+  <button class="info-btn">What do results mean?</button>
+</section>
+
+<!-- Chatbot Button -->
+<button class="chat-btn" onclick="openChat()">💬 Chat Support</button>
+
+<!-- Chatbox -->
+<div id="chatbox" class="chatbox">
+  <div class="chat-header">Student Support Bot</div>
+  <div id="messages"></div>
+  <input id="input" placeholder="Type..." />
+  <button onclick="sendMessage()">Send</button>
+</div>
+
+<!-- Newsletter -->
+<section class="newsletter">
+  <h2>Newsletter</h2>
+  <input placeholder="First Name">
+  <input placeholder="Last Name">
+  <input placeholder="Email">
+  <button class="btn-primary">Submit</button>
+</section>
+
+<script src="script.js"></script>
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f4f7f9;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background: white;
+}
+
+.logo {
+  color: #2c7a7b;
+}
+
+.btn-primary {
+  background: #ff914d;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+}
+
+.btn-outline {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+/* Hero */
+.hero {
+  background: #cfe8e8;
+  padding: 60px;
+  text-align: center;
+}
+
+.hero h1 {
+  color: #2c7a7b;
+  font-size: 40px;
+}
+
+/* Cards */
+.tests {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding: 40px;
+}
+
+.card {
+  background: #2ca6a4;
+  color: white;
+  padding: 20px;
+  border-radius: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Info Section */
+.info {
+  background: #e2e8f0;
+  padding: 40px;
+}
+
+.info-btn {
+  display: block;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 25px;
+  background: #2c7a7b;
+  color: white;
+  border: none;
+}
+
+/* Chatbot */
+.chat-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #2c7a7b;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 50%;
+}
+
+.chatbox {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 250px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px gray;
+}
+
+.chat-header {
+  background: #2c7a7b;
+  color: white;
+  padding: 10px;
+}
+
+#messages {
+  height: 150px;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+/* Newsletter */
+.newsletter {
+  padding: 40px;
+  text-align: center;
+}
+</style>
+</body>
+</html>
