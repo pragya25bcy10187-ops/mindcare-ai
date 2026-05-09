@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Depression Test</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="test-container">
+<h2>Depression Test</h2>
+
+<form id="depressionForm">
+
+<p>1. Little interest or pleasure in doing things?</p>
+<select name="q1">
+<option value="0">Not at all</option>
+<option value="1">Several days</option>
+<option value="2">More than half the days</option>
+<option value="3">Nearly every day</option>
+</select>
+
+<p>2. Feeling down or hopeless?</p>
+<select name="q2">
+<option value="0">Not at all</option>
+<option value="1">Several days</option>
+<option value="2">More than half the days</option>
+<option value="3">Nearly every day</option>
+</select>
+
+<p>3. Trouble sleeping?</p>
+<select name="q3">
+<option value="0">Not at all</option>
+<option value="1">Several days</option>
+<option value="2">More than half the days</option>
+<option value="3">Nearly every day</option>
+</select>
+
+<p>4. Feeling tired?</p>
+<select name="q4">
+<option value="0">Not at all</option>
+<option value="1">Several days</option>
+<option value="2">More than half the days</option>
+<option value="3">Nearly every day</option>
+</select>
+
+<button type="button" onclick="calculateTest('depressionForm')">Submit</button>
+</form>
+
+<h3 id="result"></h3>
+
+<div class="card" onclick="location.href='mental.html'">home back</div>
+
+
+</div>
+<script>
+  function calculateTest(formId) {
+  const form = document.forms[formId];
+  let score = 0;
+
+  for (let i = 1; i <= 4; i++) {
+    score += parseInt(form["q" + i].value);
+  }
+
+  let result = "";
+
+  if (score <= 4) result = "Low 😊";
+  else if (score <= 8) result = "Mild 😐";
+  else if (score <= 12) result = "Moderate 😟";
+  else result = "Severe ⚠️ Seek help";
+
+  document.getElementById("result").innerText =
+    "Score: " + score + " → " + result;
+}
+</script>
+
+<script src="test.js"></script>
+
+
+
+<style>
+  /* 🌿 Global Style */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: linear-gradient(to right, #60e6e6, #59a7ce);
+  color: #333;
+}
+
+/* 🧠 Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background: rgb(201, 115, 115);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.logo {
+  color: #2c7a7b;
+  font-weight: bold;
+}
+
+/* 🔘 Buttons */
+.btn-primary {
+  background: linear-gradient(45deg, #ff914d, #ff6f61);
+  color: rgb(121, 169, 231);
+  padding: 10px 18px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+}
+
+.btn-outline {
+  border: 2px solid #2c7a7b;
+  padding: 8px 15px;
+  border-radius: 20px;
+  background: transparent;
+  color: #2c7a7b;
+}
+
+/* 🌊 Hero Section */
+.hero {
+  background: linear-gradient(to right, #58a1a1, #5dc5c5);
+  padding: 70px 20px;
+  text-align: center;
+  border-radius: 0 0 40px 40px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  color: #2c7a7b;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #555;
+}
+
+/* 🧪 Test Cards */
+.tests {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 40px;
+}
+
+.card {
+  background: linear-gradient(135deg, #2ca6a4, #1e7f7d);
+  color: rgb(241, 245, 245);
+  padding: 20px;
+  border-radius: 30px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+}
+
+/* 📊 Info Section */
+.info {
+  background: #73bfd8;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.info h2 {
+  color: #2c7a7b;
+}
+
+.info-btn {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 20px;
+  border-radius: 30px;
+  background: #2c7a7b;
+  color: white;
+  border: none;
+  transition: 0.3s;
+}
+
+.info-btn:hover {
+  background: #1e5f60;
+}
+
+/* 💬 Chatbot */
+.chat-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #2c7a7b;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 18px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.chatbox {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 280px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+
+.chat-header {
+  background: #2c7a7b;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+}
+
+#messages {
+  height: 180px;
+  overflow-y: auto;
+  padding: 10px;
+  font-size: 14px;
+}
+
+#input {
+  width: 70%;
+  padding: 8px;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+.chatbox button {
+  width: 30%;
+  background: #2c7a7b;
+  color: white;
+  border: none;
+}
+
+/* 🧾 Test Pages */
+.test-container {
+  max-width: 450px;
+  margin: 60px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+}
+
+.test-container h2 {
+  text-align: center;
+  color: #2c7a7b;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+/* 📩 Newsletter */
+.newsletter {
+  padding: 50px;
+  text-align: center;
+}
+
+.newsletter input {
+  width: 80%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .tests {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+}
+</style>
+
+</body>
+</html>
